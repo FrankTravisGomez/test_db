@@ -1,0 +1,12 @@
+FROM users
+         LEFT JOIN roles ON users.role_id = roles.id;
+
+SELECT users.name AS user, roles.name AS role
+FROM users
+         RIGHT JOIN roles ON users.role_id = roles.id;
+
+SELECT roles.name, COUNT(users.name)
+FROM roles
+    JOIN users
+        ON roles.id = users.role_id
+GROUP BY roles.name;
